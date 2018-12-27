@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Monitor Auth Server</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/ej/themes/office-365/ej.web.all.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/lib/ej/themes/office-365/ej.web.all.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+</head>
+<body ng-app="monitor">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">MonitorAuthServer</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>*@
+                </ul>
+                <login></login>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2017 - MonitorAuthServer</p>
+        </footer>
+    </div>
+
+    <environment names="Development">
+        <script src="~/lib/angular/angular.js"></script>
+        <script src="~/lib/angular-route/angular-route.js"></script>
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/auth0.js/build/auth0.js"></script>
+        <script src="~/lib/angular-auth0/dist/angular-auth0.js"></script>
+        <script src="~/lib/angular-jwt/dist/angular-jwt.js"></script>
+        <script src="~/lib/jsrender/jsrender.js"></script>
+        @*<script src="~/lib/jsviews/jsviews.js"></script>*@
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/ej/scripts/ej.365.all.min.js"></script>
+        <script src="~/lib/ej/i18n/ej.culture.pl-PL.js"></script>
+        <script src="~/js/app-monitor.js"></script>
+        <script src="~/js/app-run.js"></script>
+        @*<script src="~/js/prov-serverconfig.js"></script>*@
+        <script src="~/js/svc-lib.js"></script>
+        <script src="~/js/svc-api.js"></script>
+        <script src="~/js/svc-auth.js"></script>
+        @*<script src="~/js/ctrl-authcallback.js"></script>*@
+        <script src="~/js/ctrl-monitor.js"></script>
+        <script src="~/js/ctrl-authprofile.js"></script>
+        <script src="~/js/ctrl-login.js"></script>
+        <script src="~/js/directive/login.js"></script>
+        <script src="~/js/site.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/lib/angular/angular.min.js"></script>
+        <script src="~/lib/angular-route/angular-route.min.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/auth0.js/build/auth0.min.js"></script>
+        <script src="~/lib/angular-auth0/dist/angular-auth0.min.js"></script>
+        <script src="~/lib/angular-jwt/dist/angular-jwt.min.js"></script>
+        <script src="~/lib/jsrender/jsrender.min.js"></script>
+        @*<script src="~/lib/jsviews/jsviews.min.js"></script>*@
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/lib/ej/scripts/ej.365.all.min.js"></script>
+        <script src="~/lib/ej/i18n/ej.culture.pl-PL.js"></script>
+        <script src="~/js/app-monitor.js"></script>
+        <script src="~/js/app-run.js"></script>
+        @*<script src="~/js/prov-serverconfig.js"></script>*@
+        <script src="~/js/svc-lib.js"></script>
+        <script src="~/js/svc-api.js"></script>
+        <script src="~/js/svc-auth.js"></script>
+        @*<script src="~/js/ctrl-authcallback.js"></script>*@
+        <script src="~/js/ctrl-monitor.js"></script>
+        <script src="~/js/ctrl-authprofile.js"></script>
+        <script src="~/js/ctrl-login.js"></script>
+        <script src="~/js/directive/login.js"></script>
+        <script src="~/js/site.js"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

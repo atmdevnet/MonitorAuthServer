@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="https://monitor.atmdev.net" />
+  <xs:element name="EncryptionKey" nillable="true" xmlns:q1="https://monitor.atmdev.net" type="q1:EncryptionKey" />
+  <xs:element name="Encryption" nillable="true" xmlns:q2="https://monitor.atmdev.net" type="q2:Encryption" />
+  <xs:element name="AES" nillable="true" xmlns:q3="https://monitor.atmdev.net" type="q3:AES" />
+  <xs:element name="IV" nillable="true" xmlns:q4="https://monitor.atmdev.net" type="q4:IV" />
+</xs:schema>

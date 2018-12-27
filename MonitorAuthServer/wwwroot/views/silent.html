@@ -1,0 +1,22 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="../lib/auth0.js/build/auth0.min.js"></script>
+    <script>
+        var webAuth = new auth0.WebAuth({
+            domain: 'atmdev.eu.auth0.com',
+            clientID: '',
+            scope: 'openid profile',
+            responseType: 'token id_token',
+            redirectUri: 'http://localhost:54456/'
+        });
+
+        webAuth.parseHash(window.location.hash, function (err, response) {
+            parent.postMessage(err || response, 'http://localhost:54456/');
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

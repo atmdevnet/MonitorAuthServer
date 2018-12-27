@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="https://monitor.atmdev.net" elementFormDefault="qualified" targetNamespace="https://monitor.atmdev.net" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Authorize" type="tns:Authorize" />
+  <xs:complexType name="Authorize">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Id">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="Version">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="Nick">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="UserId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EncryptionKey" nillable="true" type="tns:EncryptionKey" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Encryption" nillable="true" type="tns:Encryption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EncryptionKey">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="algorithm" type="xs:string" use="required" fixed="RSA" />
+        <xs:attribute name="mode" type="xs:string" use="required" fixed="ECB" />
+        <xs:attribute name="padding" type="xs:string" use="required" fixed="PKCS#1" />
+        <xs:attribute name="encoding" type="xs:string" use="required" fixed="base64" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Encryption">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AES" type="tns:AES" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AES">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="IV" type="tns:IV" />
+    </xs:sequence>
+    <xs:attribute name="size" type="xs:unsignedInt" use="required" fixed="256" />
+    <xs:attribute name="block" type="xs:unsignedInt" use="required" fixed="16" />
+    <xs:attribute name="mode" type="xs:string" use="required" fixed="CBC" />
+    <xs:attribute name="padding" type="xs:string" use="required" fixed="PKCS#7" />
+  </xs:complexType>
+  <xs:complexType name="IV">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="bytes" type="xs:unsignedInt" use="required" fixed="16" />
+        <xs:attribute name="encoding" type="xs:string" use="required" fixed="base64" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,18 @@
+﻿<ul class="login nav navbar-nav">
+    <li>
+        <a ng-click="login()" ng-hide="authenticated()">Log in</a>
+    </li>
+    <li>
+        <a ng-click="logout()" ng-show="authenticated()">Log out</a>
+    </li>
+    <li>
+        <a ng-click="profile()" ng-show="authenticated()">Profile</a>
+    </li>
+    <li>
+        <span ng-show="canRenew()">{{sessionTimeout}}</span>
+    </li>
+    <li>
+        <a ng-click="renew()" ng-show="canRenew()">Renew</a>
+    </li>
+</ul>
+
